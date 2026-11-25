@@ -234,6 +234,7 @@ for(let i=-1;i<4;i++){const y=o%h+i*h;if(y>cv.height)break;const fl=(((b-i)%2)+2
 function bgd(){x.fillStyle='#06030d';x.fillRect(0,0,cv.width,cv.height);const t=G?Math.min(2,Math.floor(G.k/12)):0;bgs+=(t-bgs)*.03;const a=Math.floor(bgs+.001),f=bgs-a;
 layer(A['s'+a],.15,1);if(f>.01)layer(A['s'+Math.min(2,a+1)],.15,f);layer(A.ru,.4,.5);
 x.fillStyle='#cfc2ff';for(let i=0;i<40;i++){const z=((i*37)%10)/12+.15,yy=(((i*97%100)/100*H-cam*z*.5)%H+H)%H;x.globalAlpha=z*.7*(.6+.4*Math.sin(T*2+i));x.fillRect(((i*53)%100)/100*cv.width,yy*S,z*2*S,z*2*S)}x.globalAlpha=1}
+function shape(px,py,n,a,b,rot,fill,stroke){x.beginPath();for(let i=0;i<n*2;i++){const r=i%2?b:a,t=rot+i*Math.PI/n;x[i?'lineTo':'moveTo'](px+Math.sin(t)*r,py-Math.cos(t)*r)}x.closePath();x.fillStyle=fill;x.fill();if(stroke){x.strokeStyle=stroke;x.lineWidth=1.5*S;x.stroke()}}
 function dG(g,tg){const p=gp(g),px=p.x*S,py=(p.y-cam)*S+Math.sin(T*1.3+g.x)*3*S;if(py<-150*S||py>cv.height+150*S)return;
 const m=A[g.k==0?'gE':g.t?'gF':g.f=='b'?'gB':'gS'],sc=(g.t=='h'?1.3:g.t=='s'?1.12:1)*(g.z||1),w=170*S*sc;x.save();x.translate(px,py);
 const q=x.createRadialGradient(0,0,8*S,0,0,72*S*sc);q.addColorStop(0,g.t=='h'?'rgba(95,227,255,.45)':'rgba(139,61,255,.45)');q.addColorStop(1,'rgba(139,61,255,0)');x.fillStyle=q;x.beginPath();x.arc(0,0,72*S*sc,0,TAU);x.fill();
